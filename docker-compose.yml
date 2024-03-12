@@ -1,0 +1,9 @@
+version: '3.2'
+
+services:
+  reverse-proxy:
+    container_name: reverse-proxy
+    build: .
+    ports:
+      - 14024:14024
+    restart: always

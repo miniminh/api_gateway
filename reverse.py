@@ -42,7 +42,7 @@ async def post_reverse_proxy(request: Request, services: str, path: str):
     )
 
 def main():
-    uvicorn.run("reverse:app", host="0.0.0.0", port=14024, reload=True)
+    uvicorn.run("reverse:app", host="0.0.0.0", port=14024)
 
 if __name__ == "__main__":
     main()

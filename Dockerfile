@@ -2,8 +2,6 @@ FROM ubuntu:22.04
 
 RUN apt-get update && apt-get install -y \
     build-essential \
-    git \
-    ffmpeg \
     wget \
     && rm -rf /var/lib/apt/lists/*
 
@@ -19,15 +17,12 @@ RUN bash Miniconda3-py39_24.1.2-0-Linux-x86_64.sh -b -p /miniconda
 ENV PATH=/miniconda/bin:$PATH
 
 
-RUN pip install -r requirements.txt  
-RUN git config --global http.postBuffer 157286400
-RUN git clone https://github.com/ggerganov/whisper.cpp.git
-
+RUN pip install -r requirements.txt 
 
 COPY . .
 
-EXPOSE 14022
+EXPOSE 14024
 
 RUN mkdir -p uploads
 
-CMD ["python", "app.py"]
+CMD ["python", "reverse.py"]
